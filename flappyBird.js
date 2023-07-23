@@ -137,6 +137,20 @@ function gameLoop() {
   requestAnimationFrame(gameLoop);
 }
 
+// Add a touch event listener
+window.addEventListener('touchstart', function(e) {
+  if (!gameOver) {
+    birdYSpeed = jumpSpeed;
+    jumpSound.play();
+
+    if (!bgMusicPlayed) {
+      bgMusic.play();
+      bgMusicPlayed = true;
+    }
+  }
+});
+
+
 window.addEventListener('keydown', function(e) {
   if (e.key == ' ' && !gameOver) {
     birdYSpeed = jumpSpeed;
